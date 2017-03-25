@@ -1,0 +1,21 @@
+{
+  "name": "angular1",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "SPEEDBALLV5\\Oliver McRobbie <omcrobbie@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "bootstrap": "^3.3.7"
+  }
+}

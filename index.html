@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body{margin:30px;}
+    </style>
+</head>
+
+<body>
+    <div ng-app="app">
+        <div class="container">
+            <sidebar-dir></sidebar-dir>
+            <main-dir></main-dir>
+        </div>
+    </div>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/app/index.js"></script>
+    <script src="/app/directives/list.directive.js"></script>
+    <script src="/app/directives/task.directive.js"></script>
+    <script src="/app/directives/sidebar.directive.js"></script>
+    <script src="/app/factory/api.factory.js"></script>
+</body>
+
+</html>
