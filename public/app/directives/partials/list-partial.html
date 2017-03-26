@@ -3,7 +3,12 @@
         <h3>There are no lists selected</h3>
     </div>
     <div ng-show="getCurrent()">
-        <input class="form-control" type="text" placeholder="Task title" ng-model="newTask.title" />
+        <form name="listForm" ng-init="isValid = !listForm.title.$pristine && !listForm.title.$invalid">
+            <div class="form-group" ng-class="{'has-error': isValid}">
+                <input required name="title" class="form-control" type="text" placeholder="Task title" ng-model="newTask.title" />
+            </div>
+            
+        </form>
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in getCurrent().tasks | completed:false">
                 <task-dir task="task"></task-dir>

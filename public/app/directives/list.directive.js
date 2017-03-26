@@ -17,6 +17,8 @@ app.directive('listDir', function(){
 })
 .filter('completed', function(){
     return function(input,isComplete){
+        if (!input)
+            return;
         return input.filter(function(i){
             return i.done === isComplete;
         })
