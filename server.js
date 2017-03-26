@@ -12,12 +12,14 @@ app.use(bodyParser.json());
 app.use(express.static('bower_components'));
 app.use(express.static(path.join(__dirname,'public')));
 
+//get tasks by list id
 app.get('/api/lists/:id/tasks',(req,res)=>{
     List.findById(req.params.id).populate('tasks')
     .then(tasks =>{
         res.json(tasks);
     })
 });
+//get lists
 app.get('/api/lists/:id',(req,res)=>{
     List.findById(req.params.id)
     .then(list =>{
@@ -28,9 +30,8 @@ app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-db().then(()=>{
-    console.log('Db is connected');
+// db().then(()=>{
+//     console.log('Db is connected');
     app.listen(3000,()=>{
         console.log('Server is running...');
-    })
-})
+    });

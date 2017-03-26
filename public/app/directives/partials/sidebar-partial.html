@@ -3,6 +3,15 @@
         <div class="panel-body">
             <h3>Lists</h3>
             <hr>
+            <input class="form-control" type="text" ng-model="newList.title" placeholder="List title"/>
+            <br>
+            </ul class="list-group">
+                <li class="list-group-item" ng-repeat="list in lists()">
+                    <a href="#" ng-click="setCurrent(list)">{{list.title}}</a>
+                    <span ng-click="removeList(list.id)" class="pull-right glyphicon glyphicon-remove"/>
+                </li>
+            </ul>
+            <button class="btn btn-primary" ng-click="makeList()">+Add</button>
         </div>
     </div>
 </div>
