@@ -1,12 +1,10 @@
 var app = angular.module("app", []);
 
-app.directive('mainDir', function(){
-    return {
+app.component('mainDir', {
         templateUrl: '/app/directives/partials/main-partial.html',
-        controller: function($scope, $rootScope){
-            $scope.createTask = function(){
+        controller: function($rootScope){
+            this.createTask = function(){
                 $rootScope.$broadcast('addTask');
             }
         }
-    }
 });

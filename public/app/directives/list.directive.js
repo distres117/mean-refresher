@@ -1,19 +1,21 @@
-app.directive('listDir', function(){
-    return{
-        scope:{},
+app.component('listDir', {
         templateUrl: '/app/directives/partials/list-partial.html',
-        controller:function($scope, ApiFactory, $rootScope){
-            $scope.getCurrent = function(){
-                return ApiFactory.currentList;
+        controller:function(ApiFactory, $rootScope){
+            var self = this;
+            this.getCurrent = getCurrent;
+            this.invalid = function(){
+                return listForm.title.$dirty && listForm.title.$invalid;
             }
             $rootScope.$on('addTask', function(){
-                var id = $scope.getCurrent().id;
-                var title = $scope.newTask.title;
+                var id = getCurrent().id;
+                var title = self.newTask.title;
                 if (title && id !== null)
                     ApiFactory.createTask(id,title);
             });
+            function getCurrent(){
+                return ApiFactory.currentList;
+            }
         }
-    }
 })
 .filter('completed', function(){
     return function(input,isComplete){

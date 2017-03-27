@@ -1,11 +1,6 @@
-app.directive('taskDir', function(){
-    return {
+app.component('taskDir',{
         templateUrl: '/app/directives/partials/task-partial.html',
-        scope:{
+        bindings:{
             task:'='
-        },
-        controller:function($scope, ApiFactory){
-            
         }
-    }
-})
+});

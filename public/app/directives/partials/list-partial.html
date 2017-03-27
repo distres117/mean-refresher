@@ -1,23 +1,22 @@
 <div>
-    <div ng-show="!getCurrent()">
+    <div ng-show="!$ctrl.getCurrent()">
         <h3>There are no lists selected</h3>
     </div>
-    <div ng-show="getCurrent()">
-        <form name="listForm" ng-init="isValid = !listForm.title.$pristine && !listForm.title.$invalid">
-            <div class="form-group" ng-class="{'has-error': isValid}">
-                <input required name="title" class="form-control" type="text" placeholder="Task title" ng-model="newTask.title" />
+    <div ng-show="$ctrl.getCurrent()">
+        <form name="listForm">
+            <div class="form-group" ng-class="{'has-error': $ctrl.invalid()===true}">
+                <input required name="title" class="form-control" type="text" placeholder="Task title" ng-model="$ctrl.newTask.title" />
             </div>
-            
         </form>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="task in getCurrent().tasks | completed:false">
+            <li class="list-group-item" ng-repeat="task in $ctrl.getCurrent().tasks | completed:false">
                 <task-dir task="task"></task-dir>
             </li>
         </ul>
         <hr>
         <h3>Completed</h3>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="task in getCurrent().tasks | completed:true">
+            <li class="list-group-item" ng-repeat="task in $ctrl.getCurrent().tasks | completed:true">
                 <task-dir task="task"></task-dir>
             </li>
         </ul>

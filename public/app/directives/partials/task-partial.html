@@ -1,5 +1,6 @@
 <div>
-    <span class="badge">Num</span>
-    <span>{{task.title}}</span>
-    completed:<input type="checkbox" class="pull-right" ng-model="task.done"/>
+    <span>{{$ctrl.task.title}}</span>
+    <span ng-show="$ctrl.task.done" class="badge">Complete</span>
+    <span ng-show="!$ctrl.task.done" class="badge">Pending</span>
+    <input type="checkbox" class="pull-right" ng-model="$ctrl.task.done"/>
 </div>

@@ -1,17 +1,15 @@
-app.directive('sidebarDir', function(){
-    return {
-        scope:{},
+app.component('sidebarDir', {
         templateUrl: '/app/directives/partials/sidebar-partial.html',
         controller:function($scope, ApiFactory){
-            $scope.setCurrent = function(list){
+            var self = this;
+            this.setCurrent = function(list){
                 ApiFactory.currentList = list;
             }
-            $scope.lists = ApiFactory.getLists;
-            $scope.makeList = function(){
-                ApiFactory.createList($scope.newList.title);
-                $scope.newList.title = '';
+            this.lists = ApiFactory.getLists;
+            this.makeList = function(){
+                ApiFactory.createList(self.newList.title);
+                self.newList.title = '';
             }
-            $scope.removeList = ApiFactory.deleteList;
+            this.removeList = ApiFactory.deleteList;
         }
-    };
 });
